@@ -5,21 +5,21 @@ import java.awt.event.ActionListener;
 
 public class Main extends JFrame {
 
-    // falta terminar
     public Main () {
+        // ta funfando
+
         super("Calculadora de Notas");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(-484, 49, 1440, 1024);
-        setBackground(new Color(95,159,159));
+        setBounds(-484, 49, 990, 1015);
+        getContentPane().setBackground(new Color(217,217,243));
 
-        int n1, n2, n3, n4, media;
-//        ImageIcon fundo = new ImageIcon("src/Imagens/fundo.jpg");
+//        ImageIcon fundo = new ImageIcon("src/Imagens/fundo.png");
 //        JLabel tela_calc = new JLabel(fundo);
 //        tela_calc.setBounds(0, 182, 916, 505);
 //        add(tela_calc);
 
         JLabel titulo = new JLabel();
-        titulo.setBounds(100, 100, 300, 200);
+        titulo.setBounds(250, 100, 600, 200);
         titulo.setFont(new Font("Arial", Font.BOLD, 40));
         titulo.setText("Calcule sua Média");
         titulo.setForeground(new Color(50,153,204));
@@ -53,6 +53,7 @@ public class Main extends JFrame {
         nota4.setText("Nota 4");
         add(nota4);
 
+
         JButton calcular = new JButton();
         calcular.setBackground(new Color(112,219,219));
         calcular.setBounds(250, 700, 273, 50);
@@ -60,6 +61,21 @@ public class Main extends JFrame {
         calcular.setText("CALCULAR");
         add(calcular);
 
+        calcular.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                double n1 = Double.parseDouble(nota1.getText());
+                double n2 = Double.parseDouble(nota2.getText());
+                double n3 = Double.parseDouble(nota3.getText());
+                double n4 = Double.parseDouble(nota4.getText());
+                double media = (n1 + n2 + n3 + n4) / 4;
+
+                JOptionPane.showMessageDialog(null, "Média " + media, ".", JOptionPane.PLAIN_MESSAGE);
+                System.out.println("Média = " + media);
+                System.exit(0);
+            }
+        });
 
         setLayout(null);
         setVisible(true);
